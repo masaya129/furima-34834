@@ -40,7 +40,7 @@
 
 
 
-## user_buy_address テーブル
+## user_buy_addresses テーブル
 
 | Column      | Type       | Option                         |
 | ----------  | ---------- | ------------------------------ |
@@ -54,7 +54,7 @@
 - belongs_to :item
 - has_one :buy_address
 
-## buy_address
+## buy_address テーブル
 
 | Column           | Type          | Option                         |
 | ------------     | ------------- | --------------------------     |
@@ -69,4 +69,4 @@
 
 ### Association
 
-- has_one :user_buy_address
+- belongs_to :user_buy_address
