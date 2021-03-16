@@ -70,4 +70,3 @@
 ### Association
 
 - has_one :user_buy_address
-- belongs_to :user
