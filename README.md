@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :buy_addresses, through: :user_buy_addresses
+- has_many :user_buy_addresses
 
 
 ## items テーブル
@@ -36,7 +36,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :buy_address
+- has_one :user_buy_address
 
 
 
@@ -51,6 +51,7 @@
 ### Association
 
 - belongs_to :user
+- belongs_to :item
 - has_one :buy_address
 
 ## buy_address
@@ -69,4 +70,4 @@
 ### Association
 
 - has_one :user_buy_address
-- has_many :users, through: :user_buy_addresses
+- belongs_to :user
