@@ -54,7 +54,7 @@
 - belongs_to :item
 - has_one :buy_address
 
-## buy_address テーブル
+## buy_addresses テーブル
 
 | Column           | Type          | Option                         |
 | ------------     | ------------- | --------------------------     |
