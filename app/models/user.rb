@@ -10,10 +10,14 @@ class User < ApplicationRecord
   validates :birthday, presence: true
   
   with_options presence: true do
-    validates :first_name, format: {with: /\A[ぁ-んァ-ヶ一-龥々]+\z/}
-    validates :last_name, format: {with: /\A[ぁ-んァ-ヶ一-龥々]+\z/}
-    validates :first_name_katakana, format: {with: /\A[ァ-ヶー－]+\z/}
-    validates :last_name_katakana, format: {with: /\A[ァ-ヶー－]+\z/}
+    with_options format: {with: /\A[ぁ-んァ-ヶ一-龥々]+\z/} do
+      validates :first_name
+      validates :last_name
+    end
+    with_options format: {with: /\A[ァ-ヶー－]+\z/} do
+      validates :first_name_katakana
+      validates :last_name_katakana
+    end
     validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}
   end
 end
