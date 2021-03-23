@@ -24,34 +24,34 @@ RSpec.describe '出品機能', type: :model do
       expect(@item.errors.full_messages).to include("Concept can't be blank")
     end
     
-    it "カテゴリーが空だと登録できない" do
-      @item.category_id = ''
+    it "カテゴリーの情報がないと登録できない" do
+      @item.category_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category can't be blank")
+      expect(@item.errors.full_messages).to include("Category must be other than 1")
     end
     
     it "商品の状態の情報が空だと登録できない" do
-      @item.item_status_id = ''
+      @item.item_status_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Item status can't be blank")
+      expect(@item.errors.full_messages).to include("Item status must be other than 1")
     end
     
     it "配送料についての情報が空だと登録できない" do
-      @item.delivery_price_id = ''
+      @item.delivery_price_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery price can't be blank")
+      expect(@item.errors.full_messages).to include("Delivery price must be other than 1")
     end
     
     it "発送元の地域の情報が空だと登録できない" do
-      @item.delivery_area_id = ''
+      @item.delivery_area_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery area can't be blank")
+      expect(@item.errors.full_messages).to include("Delivery area must be other than 1")
     end
     
     it "発送までの日数の情報が空だと登録できない" do
-      @item.delivery_date_id = ''
+      @item.delivery_date_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery date can't be blank")
+      expect(@item.errors.full_messages).to include("Delivery date must be other than 1")
     end
     
     it "販売価格が空だと登録できない" do
@@ -77,5 +77,11 @@ RSpec.describe '出品機能', type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is not included in the list")  
     end 
+
+    it "画像が空だと登録できない" do
+      @item.image = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Image can't be blank")
+    end
   end
 end

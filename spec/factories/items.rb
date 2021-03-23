@@ -2,12 +2,12 @@ FactoryBot.define do
   factory :item do
     name     {Faker::Name.initials(number: 2)}
     concept  {"aaaa"}
-    category_id {"メンズ"}
-    item_status_id {"新品、未使用"}
-    delivery_price_id {"送料込み(出品者負担)"}
-    delivery_area_id {"北海道"}
-    delivery_date_id {"1~2日で発送"}
-    price             {500}
+    category_id {2}
+    item_status_id {2}
+    delivery_price_id {2}
+    delivery_area_id {2}
+    delivery_date_id {2}
+    price             {1000}
     association :user
 
     after(:build) do |item|
