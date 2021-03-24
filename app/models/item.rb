@@ -2,10 +2,10 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
   belongs_to :category
-  belongs_to :deliverystatus
+  belongs_to :item_status
   belongs_to :delivery_area
   belongs_to :delivery_price
-  belongs_to :delivery_dates
+  belongs_to :delivery_date
   has_one_attached :image
 
   with_options presence: true do
