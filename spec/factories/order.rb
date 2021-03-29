@@ -7,6 +7,5 @@ FactoryBot.define do
     city_bill         {''}
     phone_number      {'1111111111'}
     token             {"tok_abcdefghijk00000000000000000"}
-    # association :user, :item
   end
 end

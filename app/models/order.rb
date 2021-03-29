@@ -15,11 +15,9 @@ class Order
   
 
 
-  # ここにバリデーションの処理を書く
 
   def save
     user_buy_address = UserBuyAddress.create(user_id: user_id, item_id: item_id)
     BuyAddress.create(address_line: address_line, delivery_area_id: delivery_area_id, city: city, block_number: block_number, city_bill: city_bill, phone_number: phone_number, user_buy_address: user_buy_address)
-    # 各テーブルにデータを保存する処理を書く
   end
 end

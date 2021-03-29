@@ -10,14 +10,12 @@
     <div class="item-img-content">
       
       <%= image_tag @item.image ,class:"item-box-img" %>
-      <%# 商品が売れている場合は、sold outを表示しましょう %>
      
         <% if @item.user_buy_address.present? %>
           <div class="sold-out">
             <span>Sold Out!!</span>
           </div>
         <% end %>
-      <%# //商品が売れている場合は、sold outを表示しましょう %>
     </div>
     <div class="item-price-box">
       <span class="item-price">
@@ -37,11 +35,9 @@
           <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
         <% end %>
     <% else %>
-      <%# 商品が売れていない場合はこちらを表示しましょう %>
         <% unless @item.user_buy_address.present? %>
           <%= link_to "購入画面に進む", item_orders_path(@item.id) ,class:"item-red-btn"%>
         <% end %>
-      <%# //商品が売れていない場合はこちらを表示しましょう %>
       <% end %>
     <% end %>
 
@@ -112,9 +108,7 @@
       後ろの商品 ＞
     </a>
   </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
   <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
 </div>
 
 <%= render "shared/footer" %>

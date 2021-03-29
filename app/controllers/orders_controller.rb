@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  # before_action :sold_out_item, only: [:index, :show]
   before_action :authenticate_user!, only: [:index]
 
   def index
@@ -32,9 +31,6 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:address_line, :delivery_area_id, :city, :block_number, :city_bill, :phone_number, :user_buy_address, :price).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
-  # def sold_out_item
-  #   redirect_to root_path if @item.user_buy_address.present?
-  # end
 
   def pay_item
     Payjp.api_key = "sk_test_430f5f355fd88cc9012114ec"  

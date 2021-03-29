@@ -58,7 +58,6 @@ RSpec.describe '商品購入機能', type: :model do
     it "tokenが空では登録できないこと" do
       @order.token = nil
       @order.valid?
-      binding.pry
       expect(@order.errors.full_messages).to include("Token can't be blank")
     end
     
