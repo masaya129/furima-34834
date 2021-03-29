@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
   
   def index
     @items = Item.includes(:user).order("created_at DESC")
-    
   end
   
   def new
@@ -25,6 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    redirect_to root_path if @item.user_buy_address.present?
   end
 
   def update
