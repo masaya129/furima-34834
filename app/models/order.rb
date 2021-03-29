@@ -6,7 +6,7 @@ class Order
     validates :user_id
     validates :item_id
     validates :address_line, format: { with: /\A\d{3}[-]\d{4}\z/}
-    validates :delivery_area_id
+    validates :delivery_area_id, numericality: { other_than: 1 }
     validates :city
     validates :block_number
     validates :phone_number, numericality: { with: /\A\d{10,11}\z/}, length: { maximum: 11 }
