@@ -41,7 +41,7 @@ RSpec.describe '商品購入機能', type: :model do
     end
 
     it "都道府県の値が1だと登録できない" do
-      @order.delivery_area_id = '1'
+      @order.delivery_area_id = １
       @order.valid?
       expect(@order.errors.full_messages).to include("Delivery area must be other than 1")
     end
