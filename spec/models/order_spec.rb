@@ -39,6 +39,12 @@ RSpec.describe '商品購入機能', type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include("Delivery area can't be blank")
     end
+
+    it "都道府県の値が1だと登録できない" do
+      @order.delivery_area_id = '1'
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Delivery area must be other than 1")
+    end
     
     it "市区町村が空だと登録できない" do
       @order.city = ''
