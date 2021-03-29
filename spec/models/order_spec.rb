@@ -48,6 +48,18 @@ RSpec.describe '商品購入機能', type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include("Phone number can't be blank")
     end
+
+    it "電話番号が12桁以上だと登録できない" do
+      @order.phone_number = '111111111111'
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+    end
+
+    it "電話番号が英数字混合だと登録できない" do
+      @order.phone_number = 'a1111111111'
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Phone number is not a number")
+    end
     
     it "郵便番号に-(ハイフン)がないと登録できない" do
       @order.address_line = '1231234'
@@ -55,11 +67,23 @@ RSpec.describe '商品購入機能', type: :model do
       expect(@order.errors.full_messages).to include("Address line is invalid")
     end
 
-    it "tokenが空では登録できないこと" do
+    it "tokenが空では登録できない" do
       @order.token = nil
       @order.valid?
       expect(@order.errors.full_messages).to include("Token can't be blank")
     end
+
+    it "user_idが空では登録できない" do
+      @order.user_id = nil
+      @order.valid?
+      expect(@order.errors.full_messages).to include("User can't be blank")
+    end
     
+    it "item_idが空では登録できない" do
+      @order.item_id = nil
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Item can't be blank")
+    end
+
   end
 end

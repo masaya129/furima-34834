@@ -9,7 +9,7 @@ class Order
     validates :delivery_area_id
     validates :city
     validates :block_number
-    validates :phone_number, format: { with: /\A\d{10,11}\z/}
+    validates :phone_number, numericality: { with: /\A\d{10,11}\z/}, length: { maximum: 11 }
     validates :token
   end
   
