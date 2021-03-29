@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe '出品機能', type: :model do
   before do
-    @item = FactoryBot.build(:item)
+    user = FactoryBot.create(:user)
+    @item = FactoryBot.build(:item, user_id: user.id)
+    # @item = FactoryBot.build(:item)
+    binding.pry
   end
 
   context "登録できるとき" do
