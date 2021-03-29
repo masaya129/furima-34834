@@ -15,6 +15,15 @@ RSpec.describe '商品購入機能', type: :model do
       expect(@order).to be_valid
     end
 
+    it "すべての情報があれば登録できる" do
+      expect(@order).to be_valid
+    end
+
+    it "建物名が空でも登録できる" do
+      @order.city_bill = ''
+      expect(@order).to be_valid
+    end
+
     
   end
 
